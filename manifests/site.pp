@@ -45,7 +45,11 @@ node default {
   notify { "Hello, my name is ${::hostname}": }
   
   file { '/etc/motd':
-    content => "Foo bar",
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => "Hey, Puppet is lots of fun!\n----------------\n\n",
   }
   
   package { 'cowsay':
