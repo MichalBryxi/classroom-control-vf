@@ -50,6 +50,13 @@ node default {
     path    => '/usr/local/bin',
   }
   
+  file { '/etc/motd':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+  }
+  
   package { 'cowsay':
     ensure => present,
     provider => gem,
