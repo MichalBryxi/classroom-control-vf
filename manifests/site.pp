@@ -43,4 +43,12 @@ node default {
   # Example:
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
+  
+  file { '/etc/motd:
+    content => "Foo bar",
+  }
+  
+  package { 'cowsay':
+    ensure => present,
+  }
 }
