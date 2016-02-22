@@ -54,5 +54,6 @@ node default {
   
   package { 'cowsay':
     ensure => present,
+    provider => gem,
   }
 }
