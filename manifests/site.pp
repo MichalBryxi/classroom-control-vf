@@ -11,11 +11,6 @@ ini_setting { 'random ordering':
 }
 
 node default {
-  # This is where you can declare classes for all nodes.
-  # Example:
-  #   class { 'my_class': }
-  notify { "Hello, my name is ${::hostname}": }
-  
   exec { 'cowmotd':
     command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
     creates => '/etc/motd',
