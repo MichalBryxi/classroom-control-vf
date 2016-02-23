@@ -36,6 +36,7 @@ node default {
   #include users
   #include skeleton
   include memcached
+  include nginx
 }
 
 
