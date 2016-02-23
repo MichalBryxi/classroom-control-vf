@@ -5,6 +5,6 @@ class skeleton {
   
   file { '/etc/skel/.bashrc':
     ensure => present,
-    source => "puppet:///${module_name}/bashrc",
+    source => "puppet:///modules/skeleton/bashrc",
   }
 }
