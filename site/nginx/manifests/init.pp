@@ -1,7 +1,4 @@
 class nginx {
-  $message = capitalize("${::virtual}")
-  notify { "I will tell you: ${message}": }
-  
   $package = 'nginx'
   #$package = case $::osfamily ? {
   #  'Solaris'          => 'wheel',
@@ -30,7 +27,7 @@ class nginx {
   
   file { '/etc/nginx/conf.d/default.conf':
     ensure => present,
-    source => 'puppet:///modules/nginx/default.conf',
+    content => template('nginx/default.conf'),
   }
   
   file { '/var/www/index.html':
