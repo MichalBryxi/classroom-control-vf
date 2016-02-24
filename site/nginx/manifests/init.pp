@@ -27,7 +27,7 @@ class nginx {
   
   file { '/etc/nginx/conf.d/default.conf':
     ensure => present,
-    content => template('nginx/default.conf'),
+    content => template('nginx/default.conf.erb'),
   }
   
   file { '/var/www/index.html':
