@@ -1,4 +1,4 @@
-derfine user::managed_user(
+define user::managed_user(
   $user    = $title,
   $group   = $title,
 ) {
