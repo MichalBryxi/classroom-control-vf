@@ -1,6 +1,14 @@
 class nginx {
-  $package = 'nginx'
+  notify {
+    capitalize("${::virtual}")
+  }
   
+  #$package = case $::osfamily ? {
+  #  'Solaris'          => 'wheel',
+  #  /(Darwin|FreeBSD)/ => 'wheel',
+  #  default            => 'root',
+  #}
+
   File {
     owner => 'root',
     group => 'root',
