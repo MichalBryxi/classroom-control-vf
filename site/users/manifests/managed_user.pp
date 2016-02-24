@@ -1,8 +1,8 @@
 define user::managed_user(
   $user    = $title,
-  $group   = $title,
+  $group   = $title
 ) {
-  user { $user:
+  user { "${user}":
     managehome => false,
     ensure     => present,
   }
