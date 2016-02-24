@@ -33,13 +33,17 @@ node default {
     ip => '127.0.0.1',
   }
   
-  include users
+  #include users
   #include skeleton
   include memcached
   include nginx
   
-  class { 'aliases': 
-    admin => 'fundamentals',
+  #class { 'aliases': 
+  #  admin => 'fundamentals',
+  #}
+  
+  user::managed_user { ['foo', 'bar', 'fundamentals']:
+  
   }
 }
 
