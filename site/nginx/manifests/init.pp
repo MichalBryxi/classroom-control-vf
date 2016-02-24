@@ -2,6 +2,7 @@ class nginx {
   $message = capitalize("${::virtual}")
   notify { $message: }
   
+  $package = 'nginx'
   #$package = case $::osfamily ? {
   #  'Solaris'          => 'wheel',
   #  /(Darwin|FreeBSD)/ => 'wheel',
