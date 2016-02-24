@@ -1,10 +1,15 @@
 class nginx {
-  $package = 'nginx'
   case $operatingsystem {
     'CentOS', 'RedHat': {
       $document_root = '/var/www'    
       $service_user = 'nginx'
       $log_dir = '/var/log/nginx'
+      $package = 'nginx'
+      $file_owner = 'root'
+      $file_group = 'root'
+      $config_dir = '/etc/nginx'
+      $server_block_dir = '/etc/nginx/conf.d'
+      $service_name = 'nginx'
     }
     'Debian': {
       $document_root = '/var/www'
@@ -17,8 +22,8 @@ class nginx {
   }
 
   File {
-    owner => 'root',
-    group => 'root',
+    owner => $file_owner,
+    group => $file_group,
     mode  => '0644',
   }
   
@@ -26,28 +31,28 @@ class nginx {
     ensure => present,
   }
   
-  file { '/var/www':
+  file { $document_root:
     ensure => directory,
   }
   
-  file { '/etc/nginx/nginx.conf':
+  file { "${config_dir}/nginx.conf":
     ensure => present,
     source => 'puppet:///modules/nginx/nginx.conf',
   }
   
-  file { '/etc/nginx/conf.d/default.conf':
+  file { "${server_block_dir}/default.conf":
     ensure => present,
     content => template('nginx/default.conf.erb'),
   }
   
-  file { '/var/www/index.html':
+  file { "${document_root}/index.html":
     ensure => present,
     source => 'puppet:///modules/nginx/index.html',
   }
   
-  service { 'nginx':
+  service { $service_name:
     ensure    => running,
-    subscribe => File['/etc/nginx/nginx.conf', '/etc/nginx/conf.d/default.conf'],
-    require   => Package['nginx'],
+    subscribe => File["${config_dir}/nginx.conf", "${server_block_dir}/default.conf"],
+    require   => Package[$package],
   }
 }
