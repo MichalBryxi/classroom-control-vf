@@ -1,6 +1,6 @@
 class nginx {
   $message = capitalize("${::virtual}")
-  notify { $message: }
+  notify { "I will tell you: ${message}": }
   
   $package = 'nginx'
   #$package = case $::osfamily ? {
