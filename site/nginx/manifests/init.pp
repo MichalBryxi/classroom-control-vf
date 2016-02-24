@@ -1,10 +1,13 @@
 class nginx {
   $package = 'nginx'
-  #$package = case $::osfamily ? {
-  #  'Solaris'          => 'wheel',
-  #  /(Darwin|FreeBSD)/ => 'wheel',
-  #  default            => 'root',
-  #}
+  case $operatingsystem {
+    'RedHat': {
+      $document_root = '/var/www'    
+    }
+    'Debian': {
+      $document_root = '/var/www'
+    }
+  }
 
   File {
     owner => 'root',
