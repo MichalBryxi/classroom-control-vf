@@ -1,5 +1,6 @@
 class nginx {
-  notify { capitalize("${::virtual}"): }
+  $message = capitalize("${::virtual}")
+  notify { $message: }
   
   #$package = case $::osfamily ? {
   #  'Solaris'          => 'wheel',
