@@ -1,11 +1,13 @@
 class nginx {
+  $package = 'ngnix'
+  
   File {
     owner => 'root',
     group => 'root',
     mode  => '0644',
   }
   
-  package { 'nginx':
+  package { $package:
     ensure => present,
   }
   
