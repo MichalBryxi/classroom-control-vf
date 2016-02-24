@@ -3,9 +3,16 @@ class nginx {
   case $operatingsystem {
     'CentOS', 'RedHat': {
       $document_root = '/var/www'    
+      $service_user = 'nginx'
+      $log_dir = '/var/log/nginx'
     }
     'Debian': {
       $document_root = '/var/www'
+      # ...
+    }
+    'Windows': {
+      $document_root = 'C:/ProgramData/nginx/html'
+      # ...
     }
   }
 
