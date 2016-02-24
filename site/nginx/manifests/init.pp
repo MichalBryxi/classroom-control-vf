@@ -1,7 +1,7 @@
 class nginx {
   $package = 'nginx'
   case $operatingsystem {
-    'RedHat': {
+    'CentOS', 'RedHat': {
       $document_root = '/var/www'    
     }
     'Debian': {
