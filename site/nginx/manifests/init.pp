@@ -1,5 +1,5 @@
 class nginx {
-  $package = 'ngnix'
+  $package = 'nginx'
   
   File {
     owner => 'root',
