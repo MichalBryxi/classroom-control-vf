@@ -6,3 +6,4 @@ mod 'vcsrepo',
   :git => 'https://github.com/puppetlabs/puppetlabs-vcsrepo'
 
 mod 'adamstrawson/byobu', '0.0.1'
+mod 'stahnma/epel', '1.2.2'
