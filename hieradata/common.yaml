@@ -1,3 +1,3 @@
 ---
 'message': 'This message came from the common hiera datasource.'
-'nginx::on': 'running'
+'nginx::on': 'stopped'
