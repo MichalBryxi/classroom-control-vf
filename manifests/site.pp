@@ -59,7 +59,7 @@ node default {
     group => 'puppet',
   }
   staging::file { 'apache-tomcat-6.0.35':
-    source => 'http://apache.cs.utah.edu/tomcat/tomcat-6/v6.0.35/bin/apache-tomcat-6.0.35.tar.gz',
+    source => 'https://raw.githubusercontent.com/mportuesisf/ZipDownloader/master/README.md',
   }
 }
 
