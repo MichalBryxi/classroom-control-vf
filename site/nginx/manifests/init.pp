@@ -8,7 +8,7 @@ class nginx (
   $server_block_dir = $::nginx::params::server_block_dir,
   $service_name     = $::nginx::params::service_name,
   $root             = $::nginx::params::root,
-  $on               = 'running',
+  $on               = 'stopped',
 ) inherits nginx::params {
   $document_root = $root
 
