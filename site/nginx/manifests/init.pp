@@ -8,6 +8,7 @@ class nginx (
   $server_block_dir = $::nginx::params::server_block_dir,
   $service_name     = $::nginx::params::service_name,
   $root             = $::nginx::params::root,
+  $on               = 'running',
 ) inherits nginx::params {
   $document_root = $root
 
@@ -41,7 +42,7 @@ class nginx (
   }
   
   service { $service_name:
-    ensure    => running,
+    ensure    => $on,
     subscribe => File["${config_dir}/nginx.conf", "${server_block_dir}/default.conf"],
     require   => Package[$package],
   }
