@@ -1,6 +1,6 @@
 class nginx (
   $root = '/var/www'
-){
+) inherits nginx::params {
   $document_root = $root
   
   case $operatingsystem {
