@@ -46,6 +46,9 @@ node default {
   #  admin => 'fundamentals',
   #}
   
+  include epel
+  include byobu
+  
   users::managed_user { ['foo', 'bar', 'fundamentals']:
   
   }
