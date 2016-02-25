@@ -55,10 +55,8 @@ node default {
   
   class { 'staging':
     path  => '/var/staging',
-    owner => 'puppet',
-    group => 'puppet',
   }
-  staging::file { 'apache-tomcat-6.0.35':
+  staging::file { 'README.md':
     source => 'https://raw.githubusercontent.com/mportuesisf/ZipDownloader/master/README.md',
   }
 }
