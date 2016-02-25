@@ -1,6 +1,4 @@
-class nginx::params (
-
-){
+class nginx::params {
   case $operatingsystem {
     'CentOS', 'RedHat': {
       $service_user = 'nginx'
