@@ -47,7 +47,7 @@ node default {
   #}
   
   include epel
-  include byobu
+  #include byobu
   
   users::managed_user { ['foo', 'bar', 'fundamentals']:
   
