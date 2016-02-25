@@ -38,7 +38,9 @@ node default {
   #include users
   #include skeleton
   include memcached
-  include nginx
+  class { 'nginx':
+    root => '/var/www'
+  }
   
   #class { 'aliases': 
   #  admin => 'fundamentals',
