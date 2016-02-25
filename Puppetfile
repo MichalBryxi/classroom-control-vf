@@ -7,3 +7,4 @@ mod 'vcsrepo',
 
 mod 'adamstrawson/byobu', '0.0.1'
 mod 'stahnma/epel', '1.2.2'
+mod 'nan1iu/staging', '1.0.3'
