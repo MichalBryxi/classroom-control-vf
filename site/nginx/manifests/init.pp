@@ -1,7 +1,10 @@
-class nginx {
+class nginx (
+  $root = '/var/www'
+){
+  $document_root = $root
+  
   case $operatingsystem {
     'CentOS', 'RedHat': {
-      $document_root = '/var/www'    
       $service_user = 'nginx'
       $log_dir = '/var/log/nginx'
       $package = 'nginx'
